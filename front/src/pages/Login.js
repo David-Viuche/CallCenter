@@ -1,7 +1,11 @@
 import React from 'react';
 
+import { UserForm } from '../components/UserForm';
+
 export const Login = () => {
     return (
-        <h1>Login</h1>
+        <React.Fragment>
+            <UserForm />
+        </React.Fragment>
     )
 }
