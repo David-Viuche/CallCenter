@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { UserForm } from '../components/UserForm';
+import { UserFormSignIn } from '../components/UserFormSignIn';
+import { UserFormSignUp } from '../components/UserFormSignUp';
 
 export const Login = () => {
     return (
         <React.Fragment>
-            <UserForm />
+            <UserFormSignIn />
+            <UserFormSignUp />
         </React.Fragment>
     )
 }

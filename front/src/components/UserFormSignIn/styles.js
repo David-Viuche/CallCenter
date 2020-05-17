@@ -24,7 +24,6 @@ export const Form = styled.form`
 `
 
 export const Input = styled.input`
-    background-color: #FFFFFF;
     border: 1px solid #8492A6;
     border-radius: 5px;
     width: 287px;
@@ -41,4 +40,5 @@ export const Button = styled.button`
     height: 50px;
     color: white;
     font-size: 18px;
+    margin-top: 4px;
 `

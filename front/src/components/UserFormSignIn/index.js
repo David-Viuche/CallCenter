@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Input, Button, Form, Div, Tittle } from './styles';
 
-export const UserForm = () => {
+export const UserFormSignIn = () => {
 
     return (
         <Div>
