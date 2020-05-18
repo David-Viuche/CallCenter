@@ -1,4 +1,4 @@
-const { Usuario, Empleado, Llamada } = require('../../sequelize');
+const { Usuario, Empleado } = require('../models/sequelize');
 
 const controller = {}
 

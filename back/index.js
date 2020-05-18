@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const sesionRutes = require('./src/routes/sesion');
+const empleadoRoutes = require('./src/routes/empleado');
 
 // Inicializaciones 
 
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 
 app.set('port',process.env.PORT || 4000);
 app.use('/sesion',sesionRutes);
+app.use('/empleado',empleadoRoutes);
 
 // Iniciar Servidor
 
