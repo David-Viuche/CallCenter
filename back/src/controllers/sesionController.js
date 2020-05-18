@@ -12,7 +12,7 @@ controller.iniciarSesion = (req, res) => {
                     res.json({ error: 'correo incorrecto' });
                 } else {
                     if (result.contraseña == contraseña) {
-                        res.json(result);
+                        res.redirect(`/empleado/activar/${result.id}`)
                     } else {
                         res.statusCode = 404;
                         res.json({ error: 'contraseña incorrecta' });
@@ -39,9 +39,10 @@ controller.iniciarSesion = (req, res) => {
 
 controller.registrarse = (req, res) => {
     const { correo, contraseña, tipo, nivelAcceso } = req.body;
+    console.log(correo, contraseña, tipo, nivelAcceso);
     if (tipo == 'empleado') {
         if (correo && contraseña && nivelAcceso) {
-            Empleado.create({ correo, contraseña, nivelAcceso })
+            Empleado.create({ correo, contraseña, nivelAcceso})
                 .then(result => {
                     res.json(result);
                 })
