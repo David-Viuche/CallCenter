@@ -9,12 +9,11 @@ export const UserFormSignUp = () => {
             <Form>
                 <ContainerInfo >
                     <Tittle>Join our club</Tittle>
-                    <p>lorem</p>
                 </ContainerInfo>
 
                 <ContainerForm>
-                    <Input placeholder="Email"></Input>
-                    <Input placeholder="Password"></Input>
+                    <Input type="email" placeholder="Email"></Input>
+                    <Input type="password" placeholder="Password"></Input>
                     <Button>Sign up</Button>
                 </ContainerForm>
             </Form>

@@ -15,8 +15,8 @@ export const Div = styled.div`
 `
 
 export const Form = styled.form`
-    width: 600px;
-    height: 526px;
+    width: 400px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;

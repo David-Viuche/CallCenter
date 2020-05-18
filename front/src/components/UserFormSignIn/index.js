@@ -8,9 +8,9 @@ export const UserFormSignIn = () => {
         <Div>
             <Form>
                 <Tittle>Sign in</Tittle>
-                <p>lorem</p>
-                <Input placeholder="Email"></Input>
-                <Input placeholder="Password"></Input>
+                <Input type="email" placeholder="Email"></Input>
+                <Input type="text" placeholder="Name"></Input>
+                <Input type="password" placeholder="Password"></Input>
                 <Button>Sign in</Button>
             </Form>
         </Div>
