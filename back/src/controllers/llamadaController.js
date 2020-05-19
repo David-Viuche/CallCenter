@@ -48,4 +48,19 @@ controller.espera = (req, res) => {
         })
 }
 
+controller.terminar = (req, res) => {
+    const idLlamada = req.params.idLlamada;
+    Llamada.findOne({ where: { id: idLlamada } })
+        .then(result => {
+            result.update({
+                estado: 'terminada',
+                horaFin: Date.now(),
+                duracion: Date.now() - result.horaInicio
+            })
+                .then(llamadaTerminada => {
+                    res.json({ estado: 'terminada', llamadaTerminada });
+                })
+        })
+}
+
 module.exports = controller;
