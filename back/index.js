@@ -17,7 +17,7 @@ app.set('port',process.env.PORT || 4000);
 app.use('/sesion',sesionRutes);
 app.use('/empleado',empleadoRoutes);
 app.use('/usuario',usuarioRoutes);
-app.use('/llamada/:id',llamadaRoutes);
+app.use('/llamada',llamadaRoutes);
 
 // Iniciar Servidor
 
