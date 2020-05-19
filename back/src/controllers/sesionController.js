@@ -38,24 +38,37 @@ controller.iniciarSesion = (req, res) => {
 }
 
 controller.registrarse = (req, res) => {
-    const { correo, contraseña, tipo, nivelAcceso } = req.body;
+    const { correo, contraseña, tipo, nivelAcceso, nombre } = req.body;
     console.log(correo, contraseña, tipo, nivelAcceso);
     if (tipo == 'empleado') {
         if (correo && contraseña && nivelAcceso) {
-            Empleado.create({ correo, contraseña, nivelAcceso})
+            Empleado.create({ correo, contraseña, nivelAcceso, nombre })
                 .then(result => {
-                    res.json(result);
+                    res.redirect(`/empleado/desactivar/${result.id}`)
                 })
         } else {
             res.statusCode = 400;
             res.json({ error: 'bad request' });
         }
     } else if (tipo == 'usuario') {
-        Usuario.create({ correo, contraseña })
+        Usuario.create({ correo, contraseña, nombre })
             .then(result => {
-                res.json(result);
+                res.redirect(`/usuario/desactivar/${result.id}`)
             })
     }
+}
+
+controller.verificar = (req, res) => {
+    const id = req.params.id;
+    Usuario.findOne({ where: id })
+        .then(result => {
+            if (result) {
+                res.json(result.sesion);
+            } else {
+                res.statusCode = 400;
+                res.json({ error: 'bad request' });
+            }
+        })
 }
 
 module.exports = controller;
