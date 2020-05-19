@@ -27,6 +27,7 @@ controller.conectar = (req, res) => {
         horaInicio: Date.now()
     })
         .then(result => {
+            fetch(`http://localhost:4000/empleado/desactivar/${idEmpleado}`)
             res.json(result);
         })
 }
@@ -58,6 +59,8 @@ controller.terminar = (req, res) => {
                 duracion: Date.now() - result.horaInicio
             })
                 .then(llamadaTerminada => {
+                    fetch(`http://localhost:4000/empleado/activar/${llamadaTerminada.receptor}`)
+                    
                     res.json({ estado: 'terminada', llamadaTerminada });
                 })
         })
