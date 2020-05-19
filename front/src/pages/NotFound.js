@@ -8,7 +8,7 @@ export const NotFound = () => {
         <React.Fragment>
             <Header />
             <h1>Error 404</h1>
-            <h2>The page dosnt exist</h2>
+            <h2>The page does not exist</h2>
         </React.Fragment>
     )
 

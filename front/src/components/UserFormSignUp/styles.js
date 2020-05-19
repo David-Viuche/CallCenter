@@ -29,7 +29,7 @@ export const ContainerForm = styled.div`
 `
 
 export const Form = styled.form`
-    width: 846px;
+    width: 875px;
     height: 200px;
     display: flex;
     flex-direction: column;

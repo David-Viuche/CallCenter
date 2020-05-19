@@ -6,6 +6,7 @@ export const User = () => {
     return (
         <React.Fragment>
             <Header />
+            <h1>User</h1>
         </React.Fragment>
     )
 } 

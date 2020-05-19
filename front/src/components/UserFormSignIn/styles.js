@@ -8,6 +8,22 @@ export const Tittle = styled.h1`
     margin-bottom: 15px;
 `
 
+export const Select = styled.select`
+    border: 1px solid #8492A6;
+    border-radius: 5px;
+    width: 287px;
+    height: 50px;
+    font-size: 18px;
+    color: #47525E;
+    background-color: white;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+`
+
+export const Option = styled.option`
+    color: #47525E;
+`
+
 export const Div = styled.div`
     display: flex;
     justify-content: center;

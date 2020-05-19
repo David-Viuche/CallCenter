@@ -8,13 +8,14 @@ export const UserFormSignUp = () => {
         <Div>
             <Form>
                 <ContainerInfo >
-                    <Tittle>Join our club</Tittle>
+                    <Tittle>Unete a la mejor red de Call Center!</Tittle>
                 </ContainerInfo>
 
                 <ContainerForm>
                     <Input type="email" placeholder="Email"></Input>
-                    <Input type="password" placeholder="Password"></Input>
-                    <Button>Sign up</Button>
+                    <Input type="password" placeholder="Contraseña"></Input>
+                    <Input type="text" placeholder="Nombre"></Input>
+                    <Button type="submit">Registrarse</Button>
                 </ContainerForm>
             </Form>
         </Div>
