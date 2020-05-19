@@ -6,9 +6,9 @@ controller.activar = (req, res) => {
     Empleado.findOne({ where: { id } })
         .then(result => {
             result.update({ disponibilidad: true })
-            .then(act =>{
-                res.json(act);
-            })
+                .then(act => {
+                    res.json(act);
+                })
         })
 }
 
@@ -17,9 +17,21 @@ controller.desactivar = (req, res) => {
     Empleado.findOne({ where: { id } })
         .then(result => {
             result.update({ disponibilidad: false })
-            .then(act =>{
-                res.json(act);
-            })
+                .then(act => {
+                    res.json(act);
+                })
+        })
+}
+
+controller.operadorDisponible = (req, res) => {
+    Empleado.findOne({ where: { disponibilidad: true } })
+        .then(result => {
+            if (result) {
+                res.json(result);
+            } else {
+                res.statusCode = 404;
+                res.json({ error: 'ningun operador disponible' });
+            }
         })
 }
 

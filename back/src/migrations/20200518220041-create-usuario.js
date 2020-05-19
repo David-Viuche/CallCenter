@@ -11,12 +11,6 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      apellido: {
-        type: Sequelize.STRING
-      },
-      nickname: {
-        type: Sequelize.STRING
-      },
       contraseña: {
         type: Sequelize.STRING
       },
