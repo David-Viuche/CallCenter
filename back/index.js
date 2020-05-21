@@ -9,7 +9,17 @@ const usuarioRoutes = require('./src/routes/usuario');
 // Inicializaciones 
 
 const app = express();
-app.use(cors());
+var whitelist = ['http://localhost:8080']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
