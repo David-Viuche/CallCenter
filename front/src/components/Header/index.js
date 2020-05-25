@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Logo } from '../Logo';
-import { Nav, Line } from './styles';
+import { Nav, Line, Button } from './styles';
 import { Context } from '../../Context';
 
 export const Header = () => {
@@ -17,7 +17,7 @@ export const Header = () => {
         <React.Fragment>
             <Nav>
                 <Logo />
-                {isAuth && <button onClick={handleClick}>Cerrar sesion</button>}
+                {isAuth && <Button onClick={handleClick}>Cerrar sesion</Button>}
             </Nav>
             <Line />
         </React.Fragment>
