@@ -6,6 +6,7 @@ import { Header } from '../../components/Header';
 import { Div, Button, Tittle } from './styles';
 
 export const User = () => {
+
     return (
         <React.Fragment>
             <Header />
