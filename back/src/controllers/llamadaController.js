@@ -60,10 +60,25 @@ controller.terminar = (req, res) => {
             })
                 .then(llamadaTerminada => {
                     fetch(`http://localhost:4000/empleado/activar/${llamadaTerminada.receptor}`)
-                    
+
                     res.json({ estado: 'terminada', llamadaTerminada });
                 })
         })
+}
+
+controller.estado = (req, res) => {
+    const idLlamada = req.params.idLlamada;
+    Espera.findOne({ where: { id: idLlamada } })
+        .then(llamadaEspera => {
+            if (llamadaEspera) {
+                res.json({ estado: 'espera', llamadaEspera });
+            } else {
+                Llamada.findOne({ where: { id: idLlamada } })
+                    .then(llamadaActiva => {
+                        res.json({ estado: 'activa', llamadaActiva });
+                    });
+            }
+        });
 }
 
 module.exports = controller;

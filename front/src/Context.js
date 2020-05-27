@@ -23,7 +23,7 @@ const Provider = ({ children }) => {
 
     return (
         <Context.Provider value={value}>
-            { children }
+            {children}
         </Context.Provider>
     )
 }
