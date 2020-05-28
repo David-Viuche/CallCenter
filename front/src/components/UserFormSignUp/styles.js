@@ -55,4 +55,5 @@ export const Button = styled.button`
     color: white;
     font-size: 18px;
     margin-left: 8px;
+    cursor: pointer;
 `

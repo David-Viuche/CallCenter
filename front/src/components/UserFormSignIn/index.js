@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import { useInputValue } from '../../hooks/useInputValue';
+import { Context } from '../../Context';
+
 import { Input, Button, Form, Div, Tittle, Select, Option } from './styles';
 
 export const UserFormSignIn = () => {
+
+    const { activateAuth } = useContext(Context);
 
     const correo = useInputValue('');
     const contraseña = useInputValue('');
@@ -28,7 +33,9 @@ export const UserFormSignIn = () => {
                 body: urlencoded
             })
 
-            console.log(res);
+            const { id } = await res.json();
+            activateAuth(id.toString());
+
         } catch (err) {
             console.log(err);
         }

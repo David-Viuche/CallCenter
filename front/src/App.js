@@ -1,20 +1,29 @@
-import React from 'react';
-import { Router } from '@reach/router';
+import React, { useContext } from 'react';
+import { Router, Redirect } from '@reach/router';
 
 import { Login } from './pages/Login';
 import { User } from './pages/User';
 import { NotFound } from './pages/NotFound';
+import { Call } from './pages/Call';
+import { Context } from './Context';
 
 import { GlobalStyle } from './styles/GlobalStyle';
 
 export const App = () => {
+
+    const { isAuth } = useContext(Context);
+
     return (
         <React.Fragment>
             <GlobalStyle />
             <Router>
-                <NotFound default/>
+                <NotFound default/>          
+                {!isAuth && <Redirect noThrow from='/user' to='/' />}
+                {!isAuth && <Redirect noThrow from='/call' to='/' />}
+                {isAuth && <Redirect noThrow from='/' to='/user' />}
                 <Login path='/'/>
                 <User path='/user'/>
+                <Call path='/call'/>
             </Router>
         </React.Fragment>
     )
