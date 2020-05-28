@@ -8,9 +8,37 @@ export const UserFormSignUp = () => {
     const contraseña = useInputValue('');
     const nombre = useInputValue('');
 
+    let urlencoded = new URLSearchParams();
+    urlencoded.append("correo", correo.value);
+    urlencoded.append("contraseña", contraseña.value);
+    urlencoded.append("nombre", nombre.value);
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+
+        try {
+
+            const res = await fetch('http://localhost:4000/sesion/signup', {
+                mode: 'cors',
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: urlencoded
+            })
+
+            const status = await res.json();
+            console.log(status);
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <Div>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <ContainerInfo >
                     <Tittle>Unete a la mejor red de Call Center!</Tittle>
                 </ContainerInfo>

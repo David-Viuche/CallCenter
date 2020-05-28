@@ -38,23 +38,12 @@ controller.iniciarSesion = (req, res) => {
 }
 
 controller.registrarse = (req, res) => {
-    const { correo, contraseña, tipo, nivelAcceso, nombre } = req.body;
-    if (tipo == 'empleado') {
-        if (correo && contraseña && nivelAcceso) {
-            Empleado.create({ correo, contraseña, nivelAcceso, nombre })
-                .then(result => {
-                    res.redirect(`/empleado/desactivar/${result.id}`)
-                })
-        } else {
-            res.statusCode = 400;
-            res.json({ error: 'bad request' });
-        }
-    } else if (tipo == 'usuario') {
-        Usuario.create({ correo, contraseña, nombre })
-            .then(result => {
-                res.redirect(`/usuario/desactivar/${result.id}`)
-            })
-    }
+    const { correo, contraseña, nombre } = req.body;
+   
+    Usuario.create({ correo, contraseña, nombre })
+        .then(result => {
+            res.redirect(`/usuario/desactivar/${result.id}`)
+        })
 }
 
 controller.verificar = (req, res) => {
